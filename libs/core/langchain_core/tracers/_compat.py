@@ -30,8 +30,8 @@ def run_to_dict(run: Run, **kwargs: Any) -> dict[str, Any]:
         Dictionary representation of the run.
     """
     if _RUN_IS_PYDANTIC_V2:
-        return run.model_dump(**kwargs)
-    return run.dict(**kwargs)  # type: ignore[deprecated]
+        return run.model_dump(**kwargs)  # type: ignore[attr-defined,no-any-return]
+    return run.dict(**kwargs)  # type: ignore[deprecated,union-attr,unused-ignore]
 
 
 def run_copy(run: Run, **kwargs: Any) -> Run:
@@ -45,8 +45,8 @@ def run_copy(run: Run, **kwargs: Any) -> Run:
         A copy of the run.
     """
     if _RUN_IS_PYDANTIC_V2:
-        return run.model_copy(**kwargs)
-    return run.copy(**kwargs)  # type: ignore[deprecated]
+        return run.model_copy(**kwargs)  # type: ignore[attr-defined,no-any-return]
+    return run.copy(**kwargs)  # type: ignore[deprecated,union-attr,unused-ignore]
 
 
 def run_construct(**kwargs: Any) -> Run:
@@ -59,8 +59,8 @@ def run_construct(**kwargs: Any) -> Run:
         A new Run instance constructed without validation.
     """
     if _RUN_IS_PYDANTIC_V2:
-        return Run.model_construct(**kwargs)
-    return Run.construct(**kwargs)  # type: ignore[deprecated]
+        return Run.model_construct(**kwargs)  # type: ignore[attr-defined,no-any-return]
+    return Run.construct(**kwargs)  # type: ignore[deprecated,union-attr,unused-ignore]
 
 
 def pydantic_to_dict(obj: Any, **kwargs: Any) -> dict[str, Any]:
